@@ -511,7 +511,7 @@ import { reactive, computed, watch } from 'vue'
 
       state.talents = state.talents.map(cat => {
         if(cat.label === 'Kampf') {
-            cat.talents = cat.talents.map(talent => {
+            Object(cat).talents = cat.talents.map(talent => {
                 switch (talent.label) {
                     case 'Parieren':
                         talent.baseValue = strength + 0.5 * health + nimbleness + 0.5 * dexterity + 0.5 * intellect + 1.5 * bravery
@@ -562,7 +562,7 @@ import { reactive, computed, watch } from 'vue'
     return base + value
   }
 
-  function calculateRemainingAp(talent, category) {
+  function calculateRemainingAp(talent:any, category:any) {
     if(category.label !== 'Kampf') {
         return props.generalInformation.experience.apMax - talent.baseValue
     }
