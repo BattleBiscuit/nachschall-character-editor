@@ -58,7 +58,7 @@ function changeTab(tab: string) {
 </script>
 
 <template>
-  <div class="container mb-3">
+  <div class="container mb-5">
     <img src="./assets/img/main_logo.png" class="rounded mx-auto d-block img-fluid">
     <div class="card">
         <div class="card-header text-center pb-0">
@@ -86,14 +86,17 @@ function changeTab(tab: string) {
           </span>
         </div>
     </div>
-    <div class="footer navbar d-lg-block d-none fixed-bottom bg-dark border-top border-secondary">
+  </div>
+    <footer class="footer navbar d-lg-block d-none bg-dark border-top border-secondary">
       <div class="row mx-2">
         <div class="col">
           v{{ version }}
         </div>
+        <div class="col text-end">
+          Nachtschall ist das geistige Eigentum vom Fabjan, unserem allmächtigen Spielleiter.
+        </div>
       </div>
-    </div>
-  </div>
+    </footer>
 </template>
 
 <style scoped>
@@ -101,7 +104,15 @@ function changeTab(tab: string) {
   color: #ff9f1a !important;
 }
 
+html,body{
+    height: 100%
+}
+
 .footer {
   color: grey !important;
+  position: fixed;
+    bottom: 0;
+    width: 100%;
 }
+
 </style>

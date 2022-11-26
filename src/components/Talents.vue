@@ -595,6 +595,17 @@ import { reactive, computed, watch } from 'vue'
 
 <template>
     <div class="row">
+        <div class="col-12">
+            <div class="form-text mb-3">
+                Talente entscheiden darüber, welche Tätigkeiten du wie gut erledigen kannst.
+                Die einzelnen Talente sind natürlich nicht gleich leicht oder schwer zu erlernen, deswegen hat unser allmächter Spielleiter ein Rating eingebaut.
+                <br>
+                Jeder Punkt, den du verteilst, kann bei einem schlechten Wurf verwendet werden, um die Differenz zum erfolgreichen Wurf auszubessern.
+                Für jedes Talent werden 3 Würfe benötigt, das jeweilige Attribut auf das geworfen wird ist jeweils mit ausgeschrieben.
+                Kampftalente werden mit einem W100 geworfen.
+            </div>
+            <hr>
+        </div>
         <div class="col text-center">
             <span v-if="remainingTP < 0" class="badge rounded-pill bg-danger">Talentpunkte: {{ remainingTP }} / {{ props.generalInformation.experience.tp }}</span>
             <span v-else class="badge rounded-pill bg-secondary">Talentpunkte: {{ remainingTP }} / {{ props.generalInformation.experience.tp }}</span>
@@ -644,7 +655,7 @@ input {
 }
 
 .talentWrapper {
-    max-height: 500px !important;
+    max-height: 400px !important;
     height: 100% !important;
     overflow-y: scroll !important;
     overflow-x: hidden !important;

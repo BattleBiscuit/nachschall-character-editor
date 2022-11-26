@@ -215,6 +215,14 @@ function ageInputHandler(event:any) {
 
 <template>
   <div class="row">
+    <div class="col-12">
+      <div class="form-text mb-3">
+        Hier werden die allgemeinen Daten deines Charakters festgehalten.
+        <br>
+        Name, Alter, deine Profession, also dein Beruf oder Berufung, das Land aus dem du kommst und dein Erfahrungsgrad.
+      </div>
+      <hr>
+    </div>
     <div class="col-md-6 mb-3">
       <label for="nameInput" class="form-label mb-0">Name</label>
       <input v-model="state.name" type="text" class="form-control" id="nameInput" @input="emit('update-data', generalInformation)">
@@ -226,14 +234,13 @@ function ageInputHandler(event:any) {
     <div class="col-md-6">
       <label for="profession" class="form-label mb-0">Profession</label>
       <input v-model="state.profession" type="text" class="form-control" id="profession" @input="emit('update-data', generalInformation)">
-      <div class="form-text mt-0"><small>Gib hier deinen Beruf ein</small></div>
     </div>
     <div class="col-md-6">
       <label for="originInput" class="form-label mb-0">Herkunft</label>
       <select v-model="state.origin" class="form-control" id="originInput" @change="emit('update-data', generalInformation)">
         <option v-for="origin of origins" :value="origin.id">{{ origin.label }}</option>            
       </select>
-      <div class="form-text mt-0"><small>Kann Auswikrung auf dein Vermögen haben</small></div>
+      <div class="form-text mt-0"><small>Je nach Herkunft ändert sich der Grundwert für Lebenspunkte</small></div>
     </div>
     <div class="col-md-6 mb-3">
       <label for="expierenceInput" class="form-label mb-0">Erfahrungsgrad</label>
@@ -242,6 +249,7 @@ function ageInputHandler(event:any) {
           <option v-for="level of expGroup.level" :value="level.id">{{ expGroup.label }} {{ level.label }}</option>
         </optgroup>
       </select>
+      <div class="form-text mt-0"><small>Legt die Anzahl und Grenzen für die Punktverteilung fest</small></div>
     </div>
   </div>
 </template>

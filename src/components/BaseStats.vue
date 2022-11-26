@@ -116,6 +116,17 @@
 
 <template>
   <div class="row">
+    <div class="col-12">
+      <div class="form-text">
+        In diesem Reiter werden die Basiswerte deines Charakters festgelegt.
+        <br>
+        Auf diese Werte wird später mit einem D20 gewürfelt, der Maximalwert ist also 20.
+        Liegst du mit einem Wurf unter deinem Wert, so ist dieser erfolgreich.
+        <br>
+        <b>Powerplay ist für Langweiler.</b> Lege also deine Attribute so fest, dass sie zu deinem Chakrater passen, nicht für den besten Nutzen für die Gruppe.
+      </div>
+      <hr>
+    </div>
     <div class="col text-center">
       <span v-if="remainingEgp > 0" class="badge rounded-pill bg-secondary">Erfahrungspunkte: {{ remainingEgp }} / {{ props.generalInformation.experience.egp }}</span>
       <span v-else class="badge rounded-pill bg-danger">Erfahrungspunkte: {{ remainingEgp }} / {{ props.generalInformation.experience.egp }}</span>
