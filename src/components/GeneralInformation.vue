@@ -199,6 +199,18 @@
 
     return general
 })
+
+function ageInputHandler(event:any) {
+  let element = event.target
+  if(element != null && element.value != '') {
+    console.log(element.value)
+    let stringValue = parseInt(element.value).toString() 
+    console.log('s', stringValue)
+    element.value = stringValue
+  }
+  emit('update-data', generalInformation)
+}
+
 </script>
 
 <template>
@@ -209,7 +221,7 @@
     </div>
     <div class="col-md-6 mb-3">
       <label for="ageInput" class="form-label mb-0">Alter</label>
-      <input v-model="state.age" type="number" class="form-control" id="ageInput" @input="emit('update-data', generalInformation)">
+      <input v-model="state.age" type="number" class="form-control" id="ageInput" @input="ageInputHandler($event)">
     </div>
     <div class="col-md-6">
       <label for="profession" class="form-label mb-0">Profession</label>

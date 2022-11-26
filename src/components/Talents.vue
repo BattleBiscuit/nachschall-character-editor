@@ -572,12 +572,23 @@ import { reactive, computed, watch } from 'vue'
     return 100 - talent.baseValue
   }
 
+
   function checkValidity(event: any, talent: any, category: any) {
     if(!event.target.validity.valid) {
         console.log(talent, event)
         talent.value = calculateRemainingAp(talent, category);
     }
   }
+
+  function inputHandler(event: any, talent: any, category: any) {
+    checkValidity(event, talent, category)
+    let element = event.target
+    if(element != null && element.value != '') {
+        let stringValue = parseInt(element.value).toString() 
+        element.value = stringValue
+    }
+}
+
   
 
 </script>
@@ -613,7 +624,7 @@ import { reactive, computed, watch } from 'vue'
                         </small>
                     </label>
                     <div class="input-group mb-3">
-                        <input v-model="talent.value" type="number" min="0" :max="calculateRemainingAp(talent, category)" :placeholder="talent.value !== null ? '' : '-'" id="strengthInput" class="form-control" @input="checkValidity($event, talent, category)">
+                        <input v-model="talent.value" type="number" min="0" :max="calculateRemainingAp(talent, category)" :placeholder="talent.value !== null ? '' : '-'" id="strengthInput" class="form-control" @input="inputHandler($event, talent, category)">
                         <span class="input-group-text">{{ talent.baseValue != 0 ? '+' + talent.baseValue : '' }} | <b class=" ms-2 text-black">{{ calculateCombined(talent.baseValue, talent.value) }}</b></span>
                     </div>
                 </div>

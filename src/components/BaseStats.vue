@@ -94,10 +94,21 @@
   }
 
   function validateAndSendData(event: any, value: any) {
-    console.log(value)
     checkValidity(event, value)
-    emit('update-data', baseStatsFull)
+    inputHandler(event)
   }
+
+  function inputHandler(event:any) {
+  let element = event.target
+  if(element != null && element.value != '') {
+    console.log(element.value)
+    let stringValue = parseInt(element.value).toString() 
+    console.log('s', stringValue)
+    element.value = stringValue
+  }
+  emit('update-data', baseStatsFull)
+}
+
 
 
 
@@ -106,7 +117,8 @@
 <template>
   <div class="row">
     <div class="col text-center">
-      <span class="badge rounded-pill bg-secondary">Erfahrungspunkte: {{ remainingEgp }} / {{ props.generalInformation.experience.egp }}</span>
+      <span v-if="remainingEgp > 0" class="badge rounded-pill bg-secondary">Erfahrungspunkte: {{ remainingEgp }} / {{ props.generalInformation.experience.egp }}</span>
+      <span v-else class="badge rounded-pill bg-danger">Erfahrungspunkte: {{ remainingEgp }} / {{ props.generalInformation.experience.egp }}</span>
     </div>
     <div class="col text-center">
       <span class="badge rounded-pill bg-secondary">Trefferpunkte: {{ healthpoints }}</span>
@@ -127,49 +139,49 @@
     <div class="col-sm-6 col-md-3">
       <label for="healthInput" class="form-label mb-0">Gesundheit</label>
       <div class="input-group mb-3">
-        <input v-model="state.health" type="number" min="0" :max="props.generalInformation.experience.egpMax" id="healthInput" class="form-control" @input="emit('update-data', baseStatsFull)">
+        <input v-model="state.health" type="number" min="0" :max="props.generalInformation.experience.egpMax" id="healthInput" class="form-control" @input="inputHandler($event)">
         <span class="input-group-text">/ {{ props.generalInformation.experience.egpMax  }}</span>
       </div>
     </div>
     <div class="col-sm-6 col-md-3">
       <label for="nimblenessInput" class="form-label mb-0">Flinkheit</label>
       <div class="input-group mb-3">
-        <input v-model="state.nimbleness" type="number" min="0" :max="props.generalInformation.experience.egpMax" id="nimblenessInput" class="form-control" @input="emit('update-data', baseStatsFull)">
+        <input v-model="state.nimbleness" type="number" min="0" :max="props.generalInformation.experience.egpMax" id="nimblenessInput" class="form-control" @input="inputHandler($event)">
         <span class="input-group-text">/ {{ props.generalInformation.experience.egpMax  }}</span>
       </div>
     </div>
     <div class="col-sm-6 col-md-3">
       <label for="dexterityInput" class="form-label mb-0">Fingerfertigkeit</label>
       <div class="input-group mb-3">
-        <input v-model="state.dexterity" type="number" min="0" :max="props.generalInformation.experience.egpMax" id="dexterityInput" class="form-control" @input="emit('update-data', baseStatsFull)">
+        <input v-model="state.dexterity" type="number" min="0" :max="props.generalInformation.experience.egpMax" id="dexterityInput" class="form-control" @input="inputHandler($event)">
         <span class="input-group-text">/ {{ props.generalInformation.experience.egpMax  }}</span>
       </div>
     </div>
     <div class="col-sm-6 col-md-3">
       <label for="charismaInput" class="form-label mb-0">Charisma</label>
       <div class="input-group mb-3">
-        <input v-model="state.charisma" type="number" min="0" :max="props.generalInformation.experience.egpMax" id="charismaInput" class="form-control" @input="emit('update-data', baseStatsFull)">
+        <input v-model="state.charisma" type="number" min="0" :max="props.generalInformation.experience.egpMax" id="charismaInput" class="form-control" @input="inputHandler($event)">
         <span class="input-group-text">/ {{ props.generalInformation.experience.egpMax  }}</span>
       </div>
     </div>
     <div class="col-sm-6 col-md-3">
       <label for="intellectInput" class="form-label mb-0">Intellekt</label>
       <div class="input-group mb-3">
-        <input v-model="state.intellect" type="number" min="0" :max="props.generalInformation.experience.egpMax" id="intellectInput" class="form-control" @input="emit('update-data', baseStatsFull)">
+        <input v-model="state.intellect" type="number" min="0" :max="props.generalInformation.experience.egpMax" id="intellectInput" class="form-control" @input="inputHandler($event)">
         <span class="input-group-text">/ {{ props.generalInformation.experience.egpMax  }}</span>
       </div>
     </div>
     <div class="col-sm-6 col-md-3">
       <label for="braveryInput" class="form-label mb-0">Tapferkeit</label>
       <div class="input-group mb-3">
-        <input v-model="state.bravery" type="number" min="0" :max="props.generalInformation.experience.egpMax" id="braveryInput" class="form-control" @input="emit('update-data', baseStatsFull)">
+        <input v-model="state.bravery" type="number" min="0" :max="props.generalInformation.experience.egpMax" id="braveryInput" class="form-control" @input="inputHandler($event)">
         <span class="input-group-text">/ {{ props.generalInformation.experience.egpMax  }}</span>
       </div>
     </div>
     <div class="col-sm-6 col-md-3">
       <label for="intelligenceInput" class="form-label mb-0">Intelligenz</label>
       <div class="input-group mb-3">
-        <input v-model="state.intelligence" type="number" min="0" :max="props.generalInformation.experience.egpMax" id="intelligenceInput" class="form-control" @input="emit('update-data', baseStatsFull)">
+        <input v-model="state.intelligence" type="number" min="0" :max="props.generalInformation.experience.egpMax" id="intelligenceInput" class="form-control" @input="inputHandler($event)">
         <span class="input-group-text">/ {{ props.generalInformation.experience.egpMax  }}</span>
       </div>
     </div>

@@ -4,14 +4,24 @@ import BaseStats from './components/BaseStats.vue'
 import Talents from './components/Talents.vue'
 import { reactive, watch   } from 'vue'
 
+const version = '1.0'
+
 const state = reactive({
   activeTab: 'tab1',
   generalData: {
     name: '',
     age: 0,
-    origin: null,
+    origin: {id: 1, label: 'Cordania', healthBonus: 0},
     profession: '',
-    experience: null
+    experience: {
+        id: 1,
+        label: '1',
+        egp: 64,
+        egpMax: 12,
+        tp: 110,
+        apMax: 10,
+        dodgeParry: 66
+      }
   },
   baseStats: {
     strength: 0,
@@ -48,8 +58,8 @@ function changeTab(tab: string) {
 </script>
 
 <template>
-  <div class="container">
-    <img src="./assets/img/main_logo.png" class="rounded mx-auto d-block">
+  <div class="container mb-3">
+    <img src="./assets/img/main_logo.png" class="rounded mx-auto d-block img-fluid">
     <div class="card">
         <div class="card-header text-center pb-0">
           <ul class="nav nav-tabs">
@@ -69,12 +79,19 @@ function changeTab(tab: string) {
             <GeneralInformation @update-data="(data) => state.generalData = data"></GeneralInformation>
           </span>
           <span id="tab2Container" class="d-none">
-            <BaseStats v-if="state.generalData.experience !== null" :generalInformation="state.generalData" @update-data="(data) => state.baseStats = data"></BaseStats>
+            <BaseStats :generalInformation="state.generalData" @update-data="(data) => state.baseStats = data"></BaseStats>
           </span>
           <span id="tab3Container" class="d-none">
-            <Talents v-if="state.generalData.experience !== null && state.baseStats.strength != null" :generalInformation="state.generalData" :baseStats="state.baseStats"></Talents>
+            <Talents :generalInformation="state.generalData" :baseStats="state.baseStats"></Talents>
           </span>
         </div>
+    </div>
+    <div class="footer navbar d-lg-block d-none fixed-bottom bg-dark border-top border-secondary">
+      <div class="row mx-2">
+        <div class="col">
+          v{{ version }}
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -82,5 +99,9 @@ function changeTab(tab: string) {
 <style scoped>
 .container {
   color: #ff9f1a !important;
+}
+
+.footer {
+  color: grey !important;
 }
 </style>
