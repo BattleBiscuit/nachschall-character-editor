@@ -128,6 +128,7 @@
     </div>
     <div class="col text-center">
       <span v-if="remainingEgp > 0" class="badge rounded-pill bg-secondary">Erfahrungspunkte: {{ remainingEgp }} / {{ props.generalInformation.experience.egp }}</span>
+      <span v-else-if="remainingEgp === 0" class="badge rounded-pill bg-success">Erfahrungspunkte: {{ remainingEgp }} / {{ props.generalInformation.experience.egp }}</span>
       <span v-else class="badge rounded-pill bg-danger">Erfahrungspunkte: {{ remainingEgp }} / {{ props.generalInformation.experience.egp }}</span>
     </div>
     <div class="col text-center">

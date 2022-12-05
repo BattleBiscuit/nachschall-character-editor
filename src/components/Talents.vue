@@ -608,6 +608,7 @@ import { reactive, computed, watch } from 'vue'
         </div>
         <div class="col text-center">
             <span v-if="remainingTP < 0" class="badge rounded-pill bg-danger">Talentpunkte: {{ remainingTP }} / {{ props.generalInformation.experience.tp }}</span>
+            <span v-else-if="(remainingTP === 0)" class="badge rounded-pill bg-success">Talentpunkte: {{ remainingTP }} / {{ props.generalInformation.experience.tp }}</span>
             <span v-else class="badge rounded-pill bg-secondary">Talentpunkte: {{ remainingTP }} / {{ props.generalInformation.experience.tp }}</span>
         </div>
         <div class="col text-center">
