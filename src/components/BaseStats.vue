@@ -122,7 +122,7 @@
         Auf diese Werte wird später mit einem D20 gewürfelt, der Maximalwert ist also 20.
         Liegst du mit einem Wurf unter deinem Wert, so ist dieser erfolgreich.
         <br>
-        <b>Powerplay ist für Langweiler.</b> Lege also deine Attribute so fest, dass sie zu deinem Chakrater passen, nicht für den besten Nutzen für die Gruppe.
+        <b>Powerplay ist für Langweiler.</b> Lege also deine Attribute so fest, dass sie zu deinem Charakter passen, nicht für den besten Nutzen für die Gruppe.
       </div>
       <hr>
     </div>

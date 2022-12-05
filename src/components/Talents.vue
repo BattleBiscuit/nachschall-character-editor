@@ -575,7 +575,6 @@ import { reactive, computed, watch } from 'vue'
 
   function checkValidity(event: any, talent: any, category: any) {
     if(!event.target.validity.valid) {
-        console.log(talent, event)
         talent.value = calculateRemainingAp(talent, category);
     }
   }
