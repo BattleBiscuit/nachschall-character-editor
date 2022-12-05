@@ -4,7 +4,7 @@ import BaseStats from './components/BaseStats.vue'
 import Talents from './components/Talents.vue'
 import { reactive, watch   } from 'vue'
 
-const version = '1.0'
+const version = '1.1'
 
 const state = reactive({
   activeTab: 'tab1',
@@ -105,7 +105,7 @@ function changeTab(tab: string) {
 
 <style scoped>
 .container {
-  color: #ff9f1a !important;
+  color: #F9A506 !important;
 }
 
 html,body{
