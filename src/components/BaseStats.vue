@@ -19,7 +19,7 @@
   
   // computed properties
   const healthpoints = computed(() => {
-    return state.strength + state.health * 4 + state.nimbleness + props.generalInformation.origin.healthBonus
+    return state.strength + state.health * 4 + state.nimbleness + props.generalInformation.origin.healthBonus + props.generalInformation.age.bonus
   })
 
   const initative = computed(() => {
@@ -103,7 +103,6 @@
   if(element != null && element.value != '') {
     console.log(element.value)
     let stringValue = parseInt(element.value).toString() 
-    console.log('s', stringValue)
     element.value = stringValue
   }
   emit('update-data', baseStatsFull)

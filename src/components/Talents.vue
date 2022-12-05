@@ -514,7 +514,7 @@ import { reactive, computed, watch } from 'vue'
             Object(cat).talents = cat.talents.map(talent => {
                 switch (talent.label) {
                     case 'Parieren':
-                        talent.baseValue = strength + 0.5 * health + nimbleness + 0.5 * dexterity + 0.5 * intellect + 1.5 * bravery
+                        talent.baseValue = strength + 0.5 * health + nimbleness + 1.5 * bravery
                         break
                     case 'Ausweichen':
                         talent.baseValue =  0.5 * strength + 0.5 * health + 1.5 * nimbleness + dexterity + intellect + 0.5 * bravery
@@ -655,8 +655,8 @@ input {
 }
 
 .talentWrapper {
-    max-height: 400px !important;
-    height: 100% !important;
+    max-height: 600px !important;
+    height: 600px !important;
     overflow-y: scroll !important;
     overflow-x: hidden !important;
 }

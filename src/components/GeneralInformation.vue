@@ -6,7 +6,7 @@
     {id: 1, label: 'Cordania', healthBonus: 0},
     {id: 2, label: 'Ael', healthBonus: 5},
     {id: 3, label: 'Istakum', healthBonus: 12},
-    {id: 4, label: 'Bruchlande', healthBonus: 100},
+    {id: 4, label: 'Bruchlande', healthBonus: 10},
     {id: 5, label: 'Elersien', healthBonus: 7}
   ]
   const experienceLevel = [
@@ -189,9 +189,32 @@
         break
       }
     }
+    let ageObject;
+    if(state.age < 12) {
+      ageObject = {age: state.age, bonus: -10}
+    }
+    else if(state.age < 17) {
+      ageObject = {age: state.age, bonus: -5}
+    }
+    else if(state.age < 29) {
+      ageObject = {age: state.age, bonus: 5}
+    }
+    else if(state.age < 54) {
+      ageObject = {age: state.age, bonus: 3}
+    }
+    else if(state.age < 64) {
+      ageObject = {age: state.age, bonus: 0}
+    }
+    else if(state.age < 79) {
+      ageObject = {age: state.age, bonus: -10}
+    }
+    else {
+      ageObject = {age: state.age, bonus: -20}
+    }
+
     let general = {
       name: state.name,
-      age: state.age,
+      age: ageObject,
       origin: originObject,
       profession: state.profession,
       experience: experienceObject
