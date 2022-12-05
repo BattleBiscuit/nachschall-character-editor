@@ -59,7 +59,11 @@ function changeTab(tab: string) {
 
 <template>
   <div class="container mb-5">
-    <img src="./assets/img/main_logo_lang.png" class="rounded mx-auto d-block img-fluid">
+    <div class="row">
+      <div class="col">
+        <img src="./assets/img/main_logo_lang.png" class="rounded w-75 d-block img-fluid mx-auto my-3">
+      </div>
+    </div>
     <div class="card">
         <div class="card-header text-center pb-0">
           <ul class="nav nav-tabs">
