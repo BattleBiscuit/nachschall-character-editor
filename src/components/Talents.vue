@@ -637,13 +637,11 @@ import { reactive, computed, watch } from 'vue'
                     <template v-if="talent.label !== 'Leereintrag'">
                         <label for="strengthInput" class="form-label mb-0 w-100">
                             {{ talent.label }}
-                            <small>
-                                <span v-if="talent.difficulty.label === 'A'" class="badge rounded-pill bg-secondary text-success"> {{ talent.difficulty.label }}</span>
-                                <span v-if="talent.difficulty.label === 'B'" class="badge rounded-pill bg-secondary text-info"> {{ talent.difficulty.label }}</span>
-                                <span v-if="talent.difficulty.label === 'C'" class="badge rounded-pill bg-secondary text-warning"> {{ talent.difficulty.label }}</span>
-                                <span v-if="talent.difficulty.label === 'D'" class="badge rounded-pill bg-secondary text-danger"> {{ talent.difficulty.label }}</span>
-                            </small>
                             <small class="float-end">
+                                <span v-if="talent.difficulty.label === 'A'" class="difficultyBadge badge rounded-pill bg-secondary text-success"> {{ talent.difficulty.label }}</span>
+                                <span v-if="talent.difficulty.label === 'B'" class="difficultyBadge badge rounded-pill bg-secondary text-info"> {{ talent.difficulty.label }}</span>
+                                <span v-if="talent.difficulty.label === 'C'" class="difficultyBadge badge rounded-pill bg-secondary text-warning"> {{ talent.difficulty.label }}</span>
+                                <span v-if="talent.difficulty.label === 'D'" class="difficultyBadge badge rounded-pill bg-secondary text-danger"> {{ talent.difficulty.label }}</span>
                                 <span v-if="talent.label === 'Ausweichen' || talent.label === 'Parieren'" class="badge badge-sm rounded-pill bg-secondary">max: {{ props.generalInformation.experience.dodgeParry }}</span>
                                 <span v-else-if="category.label === 'Kampf'" class="badge badge-sm rounded-pill bg-secondary">max: 100 </span>
                                 <span v-for="stat of talent.stats" class="badge badge-sm rounded-pill bg-secondary">{{ stat }}</span>
@@ -675,6 +673,10 @@ input {
     height: 600px !important;
     overflow-y: scroll !important;
     overflow-x: hidden !important;
+}
+
+.difficultyBadge {
+    margin-right: 2px !important;
 }
 
 </style>
