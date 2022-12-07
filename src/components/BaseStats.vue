@@ -147,7 +147,7 @@
           <span v-if="state.strength <= props.generalInformation.experience.egpMax">/ {{ props.generalInformation.experience.egpMax  }}</span>
           <span v-else class="text-danger">/ {{ props.generalInformation.experience.egpMax  }}</span>
         </span>
-        <small class="text-danger" v-if="state.strength > props.generalInformation.experience.egpMax">Sprich diese Auswahl mti deinem Spielleiter ab</small>
+        <small class="text-danger" v-if="state.strength > props.generalInformation.experience.egpMax">Sprich diese Auswahl mit deinem Spielleiter ab</small>
       </div>
     </div>
     <div class="col-sm-6 col-md-3">
