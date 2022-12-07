@@ -21,6 +21,20 @@ import { reactive, computed, watch } from 'vue'
                 value: 0
             },
             {
+                label: 'Leereintrag',
+                stats: [],
+                baseValue: 0,
+                difficulty: {label: 'B', factor: 2},
+                value: 0
+            },
+            {
+                label: 'Leereintrag',
+                stats: [],
+                baseValue: 0,
+                difficulty: {label: 'B', factor: 2},
+                value: 0
+            },
+            {
                 label: 'Hiebwaffen',
                 stats: [],
                 baseValue: 0,
@@ -620,24 +634,26 @@ import { reactive, computed, watch } from 'vue'
             <h5><b>{{ category.label }}</b></h5>
             <div class="row">
                 <div v-for="talent of category.talents" class="col-lg-3 col-sm-6">
-                    <label for="strengthInput" class="form-label mb-0 w-100">
-                        {{ talent.label }}
-                        <small>
-                            <span v-if="talent.difficulty.label === 'A'" class="badge rounded-pill bg-secondary text-success"> {{ talent.difficulty.label }}</span>
-                            <span v-if="talent.difficulty.label === 'B'" class="badge rounded-pill bg-secondary text-info"> {{ talent.difficulty.label }}</span>
-                            <span v-if="talent.difficulty.label === 'C'" class="badge rounded-pill bg-secondary text-warning"> {{ talent.difficulty.label }}</span>
-                            <span v-if="talent.difficulty.label === 'D'" class="badge rounded-pill bg-secondary text-danger"> {{ talent.difficulty.label }}</span>
-                        </small>
-                        <small class="float-end">
-                            <span v-if="talent.label === 'Ausweichen' || talent.label === 'Parieren'" class="badge badge-sm rounded-pill bg-secondary">max: {{ props.generalInformation.experience.dodgeParry }}</span>
-                            <span v-else-if="category.label === 'Kampf'" class="badge badge-sm rounded-pill bg-secondary">max: 100 </span>
-                            <span v-for="stat of talent.stats" class="badge badge-sm rounded-pill bg-secondary">{{ stat }}</span>
-                        </small>
-                    </label>
-                    <div class="input-group mb-3">
-                        <input v-model="talent.value" type="number" min="0" :max="calculateRemainingAp(talent, category)" :placeholder="talent.value !== null ? '' : '-'" id="strengthInput" class="form-control" @input="inputHandler($event, talent, category)">
-                        <span class="input-group-text">{{ talent.baseValue != 0 ? '+' + talent.baseValue : '' }} | <b class=" ms-2 text-black">{{ calculateCombined(talent.baseValue, talent.value) }}</b></span>
-                    </div>
+                    <template v-if="talent.label !== 'Leereintrag'">
+                        <label for="strengthInput" class="form-label mb-0 w-100">
+                            {{ talent.label }}
+                            <small>
+                                <span v-if="talent.difficulty.label === 'A'" class="badge rounded-pill bg-secondary text-success"> {{ talent.difficulty.label }}</span>
+                                <span v-if="talent.difficulty.label === 'B'" class="badge rounded-pill bg-secondary text-info"> {{ talent.difficulty.label }}</span>
+                                <span v-if="talent.difficulty.label === 'C'" class="badge rounded-pill bg-secondary text-warning"> {{ talent.difficulty.label }}</span>
+                                <span v-if="talent.difficulty.label === 'D'" class="badge rounded-pill bg-secondary text-danger"> {{ talent.difficulty.label }}</span>
+                            </small>
+                            <small class="float-end">
+                                <span v-if="talent.label === 'Ausweichen' || talent.label === 'Parieren'" class="badge badge-sm rounded-pill bg-secondary">max: {{ props.generalInformation.experience.dodgeParry }}</span>
+                                <span v-else-if="category.label === 'Kampf'" class="badge badge-sm rounded-pill bg-secondary">max: 100 </span>
+                                <span v-for="stat of talent.stats" class="badge badge-sm rounded-pill bg-secondary">{{ stat }}</span>
+                            </small>
+                        </label>
+                        <div class="input-group mb-3">
+                            <input v-model="talent.value" type="number" min="0" :max="calculateRemainingAp(talent, category)" :placeholder="talent.value !== null ? '' : '-'" id="strengthInput" class="form-control" @input="inputHandler($event, talent, category)">
+                            <span class="input-group-text">{{ talent.baseValue != 0 ? '+' + talent.baseValue : '' }} | <b class=" ms-2 text-black">{{ calculateCombined(talent.baseValue, talent.value) }}</b></span>
+                        </div>
+                    </template>
                 </div>
             </div>
             <hr>
