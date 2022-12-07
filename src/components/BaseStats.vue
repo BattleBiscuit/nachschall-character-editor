@@ -101,7 +101,6 @@
   function inputHandler(event:any) {
   let element = event.target
   if(element != null && element.value != '') {
-    console.log(element.value)
     let stringValue = parseInt(element.value).toString() 
     element.value = stringValue
   }
@@ -143,57 +142,89 @@
     <div class="col-sm-6 col-md-3">
       <label for="strengthInput" class="form-label mb-0">Kraft</label>
       <div class="input-group mb-3">
-        <input v-model="state.strength" type="number" min="0" :max="props.generalInformation.experience.egpMax" id="strengthInput" class="form-control" @input="validateAndSendData($event, 'strength')">
-        <span class="input-group-text">/ {{ props.generalInformation.experience.egpMax  }}</span>
+        <input v-model="state.strength" type="number" min="0" max="20" id="strengthInput" class="form-control" @input="validateAndSendData($event, 'strength')">
+        <span class="input-group-text">
+          <span v-if="state.strength <= props.generalInformation.experience.egpMax">/ {{ props.generalInformation.experience.egpMax  }}</span>
+          <span v-else class="text-danger">/ {{ props.generalInformation.experience.egpMax  }}</span>
+        </span>
+        <small class="text-danger" v-if="state.strength > props.generalInformation.experience.egpMax">Sprich diese Auswahl mti deinem Spielleiter ab</small>
       </div>
     </div>
     <div class="col-sm-6 col-md-3">
       <label for="healthInput" class="form-label mb-0">Gesundheit</label>
       <div class="input-group mb-3">
-        <input v-model="state.health" type="number" min="0" :max="props.generalInformation.experience.egpMax" id="healthInput" class="form-control" @input="inputHandler($event)">
-        <span class="input-group-text">/ {{ props.generalInformation.experience.egpMax  }}</span>
+        <input v-model="state.health" type="number" min="0" max="20" id="healthInput" class="form-control" @input="inputHandler($event)">
+        <span class="input-group-text">
+          <span v-if="state.health <= props.generalInformation.experience.egpMax">/ {{ props.generalInformation.experience.egpMax  }}</span>
+          <span v-else class="text-danger">/ {{ props.generalInformation.experience.egpMax  }}</span>
+        </span>
+        <small class="text-danger" v-if="state.health > props.generalInformation.experience.egpMax">Sprich diese Auswahl mti deinem Spielleiter ab</small>
       </div>
     </div>
     <div class="col-sm-6 col-md-3">
       <label for="nimblenessInput" class="form-label mb-0">Flinkheit</label>
       <div class="input-group mb-3">
-        <input v-model="state.nimbleness" type="number" min="0" :max="props.generalInformation.experience.egpMax" id="nimblenessInput" class="form-control" @input="inputHandler($event)">
-        <span class="input-group-text">/ {{ props.generalInformation.experience.egpMax  }}</span>
+        <input v-model="state.nimbleness" type="number" min="0" max="20" id="nimblenessInput" class="form-control" @input="inputHandler($event)">
+        <span class="input-group-text">
+          <span v-if="state.nimbleness <= props.generalInformation.experience.egpMax">/ {{ props.generalInformation.experience.egpMax  }}</span>
+          <span v-else class="text-danger">/ {{ props.generalInformation.experience.egpMax  }}</span>
+        </span>
+        <small class="text-danger" v-if="state.nimbleness > props.generalInformation.experience.egpMax">Sprich diese Auswahl mti deinem Spielleiter ab</small>
       </div>
     </div>
     <div class="col-sm-6 col-md-3">
       <label for="dexterityInput" class="form-label mb-0">Fingerfertigkeit</label>
       <div class="input-group mb-3">
-        <input v-model="state.dexterity" type="number" min="0" :max="props.generalInformation.experience.egpMax" id="dexterityInput" class="form-control" @input="inputHandler($event)">
-        <span class="input-group-text">/ {{ props.generalInformation.experience.egpMax  }}</span>
+        <input v-model="state.dexterity" type="number" min="0" max="20" id="dexterityInput" class="form-control" @input="inputHandler($event)">
+        <span class="input-group-text">
+          <span v-if="state.dexterity <= props.generalInformation.experience.egpMax">/ {{ props.generalInformation.experience.egpMax  }}</span>
+          <span v-else class="text-danger">/ {{ props.generalInformation.experience.egpMax  }}</span>
+        </span>
+        <small class="text-danger" v-if="state.dexterity > props.generalInformation.experience.egpMax">Sprich diese Auswahl mti deinem Spielleiter ab</small>
       </div>
     </div>
     <div class="col-sm-6 col-md-3">
       <label for="charismaInput" class="form-label mb-0">Charisma</label>
       <div class="input-group mb-3">
-        <input v-model="state.charisma" type="number" min="0" :max="props.generalInformation.experience.egpMax" id="charismaInput" class="form-control" @input="inputHandler($event)">
-        <span class="input-group-text">/ {{ props.generalInformation.experience.egpMax  }}</span>
+        <input v-model="state.charisma" type="number" min="0" max="20" id="charismaInput" class="form-control" @input="inputHandler($event)">
+        <span class="input-group-text">
+          <span v-if="state.charisma <= props.generalInformation.experience.egpMax">/ {{ props.generalInformation.experience.egpMax  }}</span>
+          <span v-else class="text-danger">/ {{ props.generalInformation.experience.egpMax  }}</span>
+        </span>
+        <small class="text-danger" v-if="state.charisma > props.generalInformation.experience.egpMax">Sprich diese Auswahl mti deinem Spielleiter ab</small>
       </div>
     </div>
     <div class="col-sm-6 col-md-3">
       <label for="intellectInput" class="form-label mb-0">Intellekt</label>
       <div class="input-group mb-3">
-        <input v-model="state.intellect" type="number" min="0" :max="props.generalInformation.experience.egpMax" id="intellectInput" class="form-control" @input="inputHandler($event)">
-        <span class="input-group-text">/ {{ props.generalInformation.experience.egpMax  }}</span>
+        <input v-model="state.intellect" type="number" min="0" max="20" id="intellectInput" class="form-control" @input="inputHandler($event)">
+        <span class="input-group-text">
+          <span v-if="state.intellect <= props.generalInformation.experience.egpMax">/ {{ props.generalInformation.experience.egpMax  }}</span>
+          <span v-else class="text-danger">/ {{ props.generalInformation.experience.egpMax  }}</span>
+        </span>
+        <small class="text-danger" v-if="state.intellect > props.generalInformation.experience.egpMax">Sprich diese Auswahl mti deinem Spielleiter ab</small>
       </div>
     </div>
     <div class="col-sm-6 col-md-3">
       <label for="braveryInput" class="form-label mb-0">Tapferkeit</label>
       <div class="input-group mb-3">
-        <input v-model="state.bravery" type="number" min="0" :max="props.generalInformation.experience.egpMax" id="braveryInput" class="form-control" @input="inputHandler($event)">
-        <span class="input-group-text">/ {{ props.generalInformation.experience.egpMax  }}</span>
+        <input v-model="state.bravery" type="number" min="0" max="20" id="braveryInput" class="form-control" @input="inputHandler($event)">
+        <span class="input-group-text">
+          <span v-if="state.bravery <= props.generalInformation.experience.egpMax">/ {{ props.generalInformation.experience.egpMax  }}</span>
+          <span v-else class="text-danger">/ {{ props.generalInformation.experience.egpMax  }}</span>
+        </span>
+        <small class="text-danger" v-if="state.bravery > props.generalInformation.experience.egpMax">Sprich diese Auswahl mti deinem Spielleiter ab</small>
       </div>
     </div>
     <div class="col-sm-6 col-md-3">
       <label for="intelligenceInput" class="form-label mb-0">Intelligenz</label>
       <div class="input-group mb-3">
-        <input v-model="state.intelligence" type="number" min="0" :max="props.generalInformation.experience.egpMax" id="intelligenceInput" class="form-control" @input="inputHandler($event)">
-        <span class="input-group-text">/ {{ props.generalInformation.experience.egpMax  }}</span>
+        <input v-model="state.intelligence" type="number" min="0" max="20" id="intelligenceInput" class="form-control" @input="inputHandler($event)">
+        <span class="input-group-text">
+          <span v-if="state.intelligence <= props.generalInformation.experience.egpMax">/ {{ props.generalInformation.experience.egpMax  }}</span>
+          <span v-else class="text-danger">/ {{ props.generalInformation.experience.egpMax  }}</span>
+        </span>
+        <small class="text-danger" v-if="state.intelligence > props.generalInformation.experience.egpMax">Sprich diese Auswahl mti deinem Spielleiter ab</small>
       </div>
     </div>
   </div>
