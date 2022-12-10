@@ -172,7 +172,7 @@
     age: 0,
     profession: '',
     origin: 1,
-    experience: 1
+    experience: 5
   })
 
   // computed properties
