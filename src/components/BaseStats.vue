@@ -190,7 +190,7 @@
       </div>
     </div>
     <div class="col-sm-6 col-md-3">
-      <label for="intelligenceInput" class="form-label mb-0">Intelligenz</label>
+      <label for="intelligenceInput" class="form-label mb-0">Weisheit</label>
       <div class="input-group mb-3">
         <input v-model="state.intelligence" type="number" min="0" :max="props.generalInformation.experience.egpMax" id="intelligenceInput" class="form-control" @input="inputHandler($event)">
         <span class="input-group-text">/ {{ props.generalInformation.experience.egpMax  }}</span>
