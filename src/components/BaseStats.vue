@@ -158,7 +158,7 @@
           <span v-if="state.health <= props.generalInformation.experience.egpMax">/ {{ props.generalInformation.experience.egpMax  }}</span>
           <span v-else class="text-danger">/ {{ props.generalInformation.experience.egpMax  }}</span>
         </span>
-        <small class="text-danger" v-if="state.health > props.generalInformation.experience.egpMax">Sprich diese Auswahl mti deinem Spielleiter ab</small>
+        <small class="text-danger" v-if="state.health > props.generalInformation.experience.egpMax">Sprich diese Auswahl mit deinem Spielleiter ab</small>
       </div>
     </div>
     <div class="col-sm-6 col-md-3">
@@ -169,7 +169,7 @@
           <span v-if="state.nimbleness <= props.generalInformation.experience.egpMax">/ {{ props.generalInformation.experience.egpMax  }}</span>
           <span v-else class="text-danger">/ {{ props.generalInformation.experience.egpMax  }}</span>
         </span>
-        <small class="text-danger" v-if="state.nimbleness > props.generalInformation.experience.egpMax">Sprich diese Auswahl mti deinem Spielleiter ab</small>
+        <small class="text-danger" v-if="state.nimbleness > props.generalInformation.experience.egpMax">Sprich diese Auswahl mit deinem Spielleiter ab</small>
       </div>
     </div>
     <div class="col-sm-6 col-md-3">
@@ -180,7 +180,7 @@
           <span v-if="state.dexterity <= props.generalInformation.experience.egpMax">/ {{ props.generalInformation.experience.egpMax  }}</span>
           <span v-else class="text-danger">/ {{ props.generalInformation.experience.egpMax  }}</span>
         </span>
-        <small class="text-danger" v-if="state.dexterity > props.generalInformation.experience.egpMax">Sprich diese Auswahl mti deinem Spielleiter ab</small>
+        <small class="text-danger" v-if="state.dexterity > props.generalInformation.experience.egpMax">Sprich diese Auswahl mit deinem Spielleiter ab</small>
       </div>
     </div>
     <div class="col-sm-6 col-md-3">
@@ -191,7 +191,7 @@
           <span v-if="state.charisma <= props.generalInformation.experience.egpMax">/ {{ props.generalInformation.experience.egpMax  }}</span>
           <span v-else class="text-danger">/ {{ props.generalInformation.experience.egpMax  }}</span>
         </span>
-        <small class="text-danger" v-if="state.charisma > props.generalInformation.experience.egpMax">Sprich diese Auswahl mti deinem Spielleiter ab</small>
+        <small class="text-danger" v-if="state.charisma > props.generalInformation.experience.egpMax">Sprich diese Auswahl mit deinem Spielleiter ab</small>
       </div>
     </div>
     <div class="col-sm-6 col-md-3">
@@ -202,7 +202,7 @@
           <span v-if="state.intellect <= props.generalInformation.experience.egpMax">/ {{ props.generalInformation.experience.egpMax  }}</span>
           <span v-else class="text-danger">/ {{ props.generalInformation.experience.egpMax  }}</span>
         </span>
-        <small class="text-danger" v-if="state.intellect > props.generalInformation.experience.egpMax">Sprich diese Auswahl mti deinem Spielleiter ab</small>
+        <small class="text-danger" v-if="state.intellect > props.generalInformation.experience.egpMax">Sprich diese Auswahl mit deinem Spielleiter ab</small>
       </div>
     </div>
     <div class="col-sm-6 col-md-3">
@@ -213,7 +213,7 @@
           <span v-if="state.bravery <= props.generalInformation.experience.egpMax">/ {{ props.generalInformation.experience.egpMax  }}</span>
           <span v-else class="text-danger">/ {{ props.generalInformation.experience.egpMax  }}</span>
         </span>
-        <small class="text-danger" v-if="state.bravery > props.generalInformation.experience.egpMax">Sprich diese Auswahl mti deinem Spielleiter ab</small>
+        <small class="text-danger" v-if="state.bravery > props.generalInformation.experience.egpMax">Sprich diese Auswahl mit deinem Spielleiter ab</small>
       </div>
     </div>
     <div class="col-sm-6 col-md-3">
@@ -224,7 +224,7 @@
           <span v-if="state.intelligence <= props.generalInformation.experience.egpMax">/ {{ props.generalInformation.experience.egpMax  }}</span>
           <span v-else class="text-danger">/ {{ props.generalInformation.experience.egpMax  }}</span>
         </span>
-        <small class="text-danger" v-if="state.intelligence > props.generalInformation.experience.egpMax">Sprich diese Auswahl mti deinem Spielleiter ab</small>
+        <small class="text-danger" v-if="state.intelligence > props.generalInformation.experience.egpMax">Sprich diese Auswahl mit deinem Spielleiter ab</small>
       </div>
     </div>
   </div>
