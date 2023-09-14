@@ -17,8 +17,7 @@
         egp: 64,
         egpMax: 12,
         tp: 110,
-        apMax: 10,
-        dodgeParry: 66
+        apMax: 10
       },
       {
         id: 2,
@@ -26,8 +25,7 @@
         egp: 68,
         egpMax: 12,
         tp: 135,
-        apMax: 11,
-        dodgeParry: 68
+        apMax: 11
       },
       {
         id: 3,
@@ -35,8 +33,7 @@
         egp: 72,
         egpMax: 13,
         tp: 150,
-        apMax: 12,
-        dodgeParry: 70
+        apMax: 12
       },
       {
         id: 4,
@@ -44,8 +41,7 @@
         egp: 76,
         egpMax: 13,
         tp: 165,
-        apMax: 13,
-        dodgeParry: 72
+        apMax: 13
       }
     ]},
     { label: 'Erfahren', level: [
@@ -55,8 +51,7 @@
         egp: 80,
         egpMax: 14,
         tp: 180,
-        apMax: 14,
-        dodgeParry: 74
+        apMax: 14
       },
       {
         id: 6,
@@ -64,8 +59,7 @@
         egp: 83,
         egpMax: 14,
         tp: 195,
-        apMax: 15,
-        dodgeParry: 76
+        apMax: 15
       },
       {
         id: 7,
@@ -73,8 +67,7 @@
         egp: 86,
         egpMax: 15,
         tp: 210,
-        apMax: 16,
-        dodgeParry: 78
+        apMax: 16
       },
       {
         id: 8,
@@ -82,8 +75,7 @@
         egp: 89,
         egpMax: 15,
         tp: 225,
-        apMax: 17,
-        dodgeParry: 80
+        apMax: 17
       }
     ]},
     { label: 'Meisterlich', level: [
@@ -93,8 +85,7 @@
         egp: 92,
         egpMax: 16,
         tp: 240,
-        apMax: 18,
-        dodgeParry: 82
+        apMax: 18
       },
       {
         id: 10,
@@ -102,8 +93,7 @@
         egp: 95,
         egpMax: 16,
         tp: 255,
-        apMax: 19,
-        dodgeParry: 84
+        apMax: 19
       },
       {
         id: 11,
@@ -111,8 +101,7 @@
         egp: 98,
         egpMax: 17,
         tp: 270,
-        apMax: 19,
-        dodgeParry: 86
+        apMax: 19
       },
       {
         id: 12,
@@ -120,8 +109,7 @@
         egp: 101,
         egpMax: 17,
         tp: 285,
-        apMax: 20,
-        dodgeParry: 88
+        apMax: 20
       }
     ]},
     {label: 'Heldenhaft', level: [
@@ -131,8 +119,7 @@
         egp: 105,
         egpMax: 18,
         tp: 300,
-        apMax: 22,
-        dodgeParry: 90
+        apMax: 22
       },
       {
         id: 14,
@@ -140,8 +127,7 @@
         egp: 109,
         egpMax: 18,
         tp: 315,
-        apMax: 23,
-        dodgeParry: 92
+        apMax: 23
       },
       {
         id: 15,
@@ -149,8 +135,7 @@
         egp: 113,
         egpMax: 19,
         tp: 330,
-        apMax: 24,
-        dodgeParry: 94
+        apMax: 24
       },
       {
         id: 16,
@@ -158,8 +143,7 @@
         egp: 117,
         egpMax: 19,
         tp: 345,
-        apMax: 25,
-        dodgeParry: 96
+        apMax: 25
       }
     ]}
   ]

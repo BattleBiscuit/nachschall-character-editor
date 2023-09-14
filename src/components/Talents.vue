@@ -150,7 +150,7 @@ import { reactive, computed, watch } from 'vue'
             },
             {
                 label: 'Tanzen',
-                stats: ['FL', 'FF', 'IN'],
+                stats: ['FL', 'FF', 'TA'],
                 baseValue: 3,
                 difficulty: {label: 'B', factor: 2},
                 value: 0
@@ -302,15 +302,15 @@ import { reactive, computed, watch } from 'vue'
             {
                 label: 'Reitverständnis',
                 stats: ['GH', 'FF', 'TA'],
-                baseValue: 5,
-                difficulty: {label: 'A', factor: 1},
+                baseValue: 0,
+                difficulty: {label: 'B', factor: 2},
                 value: 0
             }
         ]},
         { label: 'Handwerk', talents: [
             {
                 label: 'Fahrwerksarbeit',
-                stats: ['KR', 'FF', 'IN'],
+                stats: ['KR', 'FF', 'WE'],
                 baseValue: 0,
                 difficulty: {label: 'C', factor: 3},
                 value: null
@@ -324,7 +324,7 @@ import { reactive, computed, watch } from 'vue'
             },
             {
                 label: 'Holzarbeit',
-                stats: ['KR', 'FF', 'IN'],
+                stats: ['KR', 'FF', 'WE'],
                 baseValue: 0,
                 difficulty: {label: 'C', factor: 3},
                 value: null
@@ -359,7 +359,7 @@ import { reactive, computed, watch } from 'vue'
             },
             {
                 label: 'Metallarbeit',
-                stats: ['KR', 'FF', 'IN'],
+                stats: ['KR', 'FF', 'WE'],
                 baseValue: 0,
                 difficulty: {label: 'C', factor: 3},
                 value: null
@@ -380,7 +380,7 @@ import { reactive, computed, watch } from 'vue'
             },
             {
                 label: 'Steinarbeit',
-                stats: ['KR', 'FF', 'IN'],
+                stats: ['KR', 'FF', 'WE'],
                 baseValue: 0,
                 difficulty: {label: 'C', factor: 3},
                 value: null
@@ -394,7 +394,7 @@ import { reactive, computed, watch } from 'vue'
             },
             {
                 label: 'Waffenarbeit',
-                stats: ['KR', 'FF', 'IN'],
+                stats: ['KR', 'FF', 'WE'],
                 baseValue: 0,
                 difficulty: {label: 'C', factor: 3},
                 value: null
@@ -417,7 +417,7 @@ import { reactive, computed, watch } from 'vue'
             },
             {
                 label: 'Historie',
-                stats: ['CH', 'WE', 'WE'],
+                stats: ['WE', 'WE', 'WE'],
                 baseValue: 0,
                 difficulty: {label: 'D', factor: 4},
                 value: null
@@ -431,9 +431,9 @@ import { reactive, computed, watch } from 'vue'
             },
             {
                 label: 'Kartenkunde',
-                stats: ['WE', 'WE', 'WE'],
+                stats: ['WE', 'WE', 'IN'],
                 baseValue: 0,
-                difficulty: {label: 'D', factor: 4},
+                difficulty: {label: 'C', factor: 3},
                 value: null
             },
             {
@@ -466,9 +466,9 @@ import { reactive, computed, watch } from 'vue'
             },
             {
                 label: 'Sagen- & Legendenkunde',
-                stats: ['CH', 'WE', 'WE'],
+                stats: ['CH', 'CH', 'WE'],
                 baseValue: 0,
-                difficulty: {label: 'D', factor: 4},
+                difficulty: {label: 'C', factor: 3},
                 value: null
             },
             {
@@ -494,7 +494,7 @@ import { reactive, computed, watch } from 'vue'
             },
             {
                 label: 'Wetterkunde',
-                stats: ['CH', 'WE', 'WE'],
+                stats: ['IN', 'WE', 'WE'],
                 baseValue: 0,
                 difficulty: {label: 'D', factor: 4},
                 value: null
@@ -528,10 +528,10 @@ import { reactive, computed, watch } from 'vue'
             Object(cat).talents = cat.talents.map(talent => {
                 switch (talent.label) {
                     case 'Parieren':
-                        talent.baseValue = strength + 0.5 * health + nimbleness + 1.5 * bravery
+                        talent.baseValue = strength + health + bravery
                         break
                     case 'Ausweichen':
-                        talent.baseValue =  0.5 * strength + 0.5 * health + 1.5 * nimbleness + dexterity + intellect + 0.5 * bravery
+                        talent.baseValue = health + 2 * nimbleness + 0.5 * dexterity
                         break
                     case 'Hiebwaffen':
                         talent.baseValue = strength + 0.5 * health + 1.5 * nimbleness + dexterity
@@ -546,16 +546,16 @@ import { reactive, computed, watch } from 'vue'
                         talent.baseValue = strength + health + 1.5 * nimbleness + 0.5 * dexterity
                         break
                     case 'Schlagwaffen':
-                        talent.baseValue = 2 * strength + health + nimbleness + dexterity
+                        talent.baseValue = 2 * strength + health + nimbleness + 0.5 * dexterity
                         break
                     case 'Stangenwaffen':
-                        talent.baseValue = 2 * strength + health + nimbleness + dexterity
+                        talent.baseValue = 2 * strength + health + nimbleness + 0.5 * dexterity
                         break
                     case 'Bögen':
-                        talent.baseValue = health +  dexterity + 1.5 * nimbleness
+                        talent.baseValue = strength + 0.5 * health +  2 * dexterity
                         break
                     case 'Armbrüste':
-                        talent.baseValue = strength + 0.5 * health + dexterity + 1.5 * nimbleness
+                        talent.baseValue = strength + health + 2 * dexterity
                         break
                     default:
                         break;
@@ -579,9 +579,6 @@ import { reactive, computed, watch } from 'vue'
   function calculateRemainingAp(talent:any, category:any) {
     if(category.label !== 'Kampf') {
         return props.generalInformation.experience.apMax - talent.baseValue
-    }
-    else if (talent.label === 'Ausweichen' || talent.label === 'Parieren') {
-        return props.generalInformation.experience.dodgeParry - talent.baseValue
     }
     return 100 - talent.baseValue
   }
@@ -642,7 +639,6 @@ import { reactive, computed, watch } from 'vue'
                                 <span v-if="talent.difficulty.label === 'B'" class="difficultyBadge badge rounded-pill bg-secondary text-info"> {{ talent.difficulty.label }}</span>
                                 <span v-if="talent.difficulty.label === 'C'" class="difficultyBadge badge rounded-pill bg-secondary text-warning"> {{ talent.difficulty.label }}</span>
                                 <span v-if="talent.difficulty.label === 'D'" class="difficultyBadge badge rounded-pill bg-secondary text-danger"> {{ talent.difficulty.label }}</span>
-                                <span v-if="talent.label === 'Ausweichen' || talent.label === 'Parieren'" class="badge badge-sm rounded-pill bg-secondary">max: {{ props.generalInformation.experience.dodgeParry }}</span>
                                 <span v-else-if="category.label === 'Kampf'" class="badge badge-sm rounded-pill bg-secondary">max: 100 </span>
                                 <span v-for="stat of talent.stats" class="badge badge-sm rounded-pill bg-secondary">{{ stat }}</span>
                             </small>
